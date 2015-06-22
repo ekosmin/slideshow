@@ -5,6 +5,7 @@ module Main {
 
 
         preload() {
+            this.load.image('herman', 'assets/HERMAN.png');
             this.load.image('button', 'assets/button.png');
         }
 

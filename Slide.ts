@@ -5,10 +5,12 @@ module Main {
 
         public text: string;
         public link: string;
+        public image: string;
 
-        constructor(text: string, link?: string) {
+        constructor(text: string, link?: string, image?: string) {
             this.text = text;
             this.link = link;
+            this.image = image;
         }
     }
 
