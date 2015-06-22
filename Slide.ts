@@ -3,12 +3,12 @@ module Main {
 
     export class Slide {
 
-        private static slide: number = -1;
-        private static slides: string[] = ["Hello again!", "Still there...?"];
+        public text: string;
+        public link: string;
 
-        public static advance(console: Phaser.Text): void {
-            Slide.slide++;
-            console.setText(Slide.slides[Slide.slide]);
+        constructor(text: string, link?: string) {
+            this.text = text;
+            this.link = link;
         }
     }
 

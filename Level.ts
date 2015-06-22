@@ -11,7 +11,7 @@ module Main {
 
             var style: {} = {font: "32px Arial", fill: "#FFFFFF", align: "left"};
             this.console = this.game.add.text(0, this.game.height/2, "", style);
-            Slide.advance(this.console);
+            Slideshow.advance(this.console);
 
             var group: Phaser.Group = this.game.add.group();
             group.add(new Button(this));

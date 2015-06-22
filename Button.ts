@@ -1,6 +1,6 @@
 ///<reference path="phaser/typescript/phaser.d.ts"/>
 ///<reference path="Level.ts"/>
-///<reference path="Slide.ts"/>
+///<reference path="Slideshow.ts"/>
 module Main {
 
     export class Button extends Phaser.Sprite {
@@ -18,7 +18,7 @@ module Main {
         }
 
         private advanceSlide(): void {
-            Slide.advance(this.level.console);
+            Slideshow.advance(this.level.console);
         }
     }
 }
