@@ -12,6 +12,7 @@ module Main {
             this.level = level;
             this.width = this.width/8;
             this.height = this.height/8;
+            this.y = level.game.height - this.height;
 
             this.inputEnabled = true;
             this.events.onInputDown.add(this.advanceSlide, this);

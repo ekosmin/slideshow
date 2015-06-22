@@ -6,14 +6,18 @@ module Main {
 
         private static slide: number = -1;
         private static slides: Slide[] = [
-            new Slide("foo"),
-            new Slide("baz", "http://google.com")
+            new Slide("Today's lesson is playing Guess Who. Click the button below to advance slides."),
+            new Slide("Click here to open the game", "http://localhost:63342/guess-who/index.html")
         ]
+
+        public static initialize(console: Phaser.Text): void {
+            console.inputEnabled = true;
+            console.events.onInputDown.add(Slideshow.openWindow, this);
+            Slideshow.advance(console);
+        }
 
         public static advance(console: Phaser.Text): void {
             Slideshow.slide++;
-            console.inputEnabled = true;
-            console.events.onInputDown.add(Slideshow.openWindow, this);
             Slideshow.drawSlide(Slideshow.slides[Slideshow.slide], console);
         }
 
