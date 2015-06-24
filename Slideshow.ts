@@ -8,9 +8,11 @@ module Main {
         private static slide: number = -1;
         private static slides: Slide[] = [
             new Slide("Today's lesson is playing Guess Who. Click the button below to advance slides."),
-            new Slide("Here is a face from the game.", "", "herman", ""),
+            new Slide("First, play some fridge poetry by clicking here. Come back when you're finished",
+                "http://localhost:63342/fridge-poetry/index.html"),
+            new Slide("Here is a face from Guess Who.", "", "herman", ""),
             new Slide("Here are some instructions on how to play.", "", "", "next"),
-            new Slide("Click here to open the game.", "http://localhost:63342/guess-who/index.html")
+            new Slide("Click here to open Guess Who.", "http://localhost:63342/guess-who/index.html")
         ]
 
         private static level: Level;

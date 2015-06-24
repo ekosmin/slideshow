@@ -9,9 +9,6 @@ module Main {
 
         create() {
             this.game.stage.backgroundColor = '#777777';
-            //
-            //document.getElementById("videoWrapper").style.height = 0;
-
 
             var style: {} = {font: "32px Arial", fill: "#FFFFFF", align: "left",
                 wordWrap: true, wordWrapWidth: this.game.width};
