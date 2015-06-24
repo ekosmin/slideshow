@@ -6,10 +6,14 @@ module Main {
     export class Slideshow {
 
         private static slide: number = -1;
+        private static poetryWords: string[] = ['boil', 'apparatus', 'away', 'and', 'above', 'frantic', 'enormous',
+            'cry', 'but', 'is', 'if', 'I', 'honey', 'her', 'girl', 'on', 'not', 'mad', 'ly',
+            'like', 'lie', 'the', 'still', 'some', 'she', 's', 's', 'rip', 'you',
+            'woman', 'why', 'use', 'time', 'the', 'you'];
         private static slides: Slide[] = [
             new Slide("Today's lesson is playing Guess Who. Click the button below to advance slides."),
             new Slide("First, play some fridge poetry by clicking here. Come back when you're finished",
-                "http://localhost:63342/fridge-poetry/index.html"),
+                "http://localhost:63342/fridge-poetry/index.html?" + Slideshow.formatPoetryWords(Slideshow.poetryWords)),
             new Slide("Here is a face from Guess Who.", "", "herman", ""),
             new Slide("Here are some instructions on how to play.", "", "", "next"),
             new Slide("Click here to open Guess Who.", "http://localhost:63342/guess-who/index.html")
@@ -94,6 +98,14 @@ module Main {
             if (!Utils.isNullOrEmpty(curr.link)) {
                 window.open(curr.link);
             }
+        }
+
+        private static formatPoetryWords(words: string[]): string {
+            var builder: string = "";
+            for (var i: number = 0; i < words.length; i++) {
+                builder += words[i] + ",";
+            }
+            return builder;
         }
     }
 
