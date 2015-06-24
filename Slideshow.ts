@@ -8,7 +8,8 @@ module Main {
         private static slide: number = -1;
         private static slides: Slide[] = [
             new Slide("Today's lesson is playing Guess Who. Click the button below to advance slides."),
-            new Slide("Here is a face from the game.", "", "herman"),
+            new Slide("Here is a face from the game.", "", "herman", ""),
+            new Slide("Here are some instructions on how to play.", "", "", "next"),
             new Slide("Click here to open the game.", "http://localhost:63342/guess-who/index.html")
         ]
 
@@ -28,6 +29,35 @@ module Main {
 
         private static drawSlide(slide: Slide, console: Phaser.Text) {
             console.setText(slide.text);
+            Slideshow.addImage(slide);
+            Slideshow.addVideo(slide);
+        }
+
+        private static addVideo(slide: Slide) {
+            if (!Utils.isNullOrEmpty(slide.video)) {
+                var player:HTMLVideoElement = Slideshow.getPlayer();
+
+                var mp4Vid = document.getElementById('mp4Source');
+                var oggVid = document.getElementById('oggSource');
+
+                player.pause();
+
+                mp4Vid.setAttribute('src', 'eh5v.files/html5video/' + slide.video + '.m4v');
+                oggVid.setAttribute('src', 'eh5v.files/html5video/' + slide.video + '.ogv');
+
+                player.load();
+                document.getElementById("videoWrapper").style.visibility = "visible";
+            } else {
+                document.getElementById("videoWrapper").style.visibility = "hidden";
+                Slideshow.getPlayer().pause();
+            }
+        }
+
+        private static getPlayer(): HTMLVideoElement {
+            return document.getElementsByTagName("video")[0];
+        }
+
+        private static addImage(slide: Slide) {
             if (!Utils.isNullOrEmpty(slide.image)) {
                 var image: Phaser.Image = Slideshow.level.add.image(0, 0, slide.image);
                 Slideshow.level.image = image;
